@@ -1,4 +1,13 @@
 {
+    "name": "mover-io/belt",
+    "license": "MIT",
+    "authors": [
+        "name": "Jacob Straszynski",
+        "homepage": "https://github.com/jacobstr"
+    ],
+    "support": {
+        "email": "support@mover.io"
+    },
     "require": {
         "mover-io/phpusable-phpunit": "dev-master"
     },
