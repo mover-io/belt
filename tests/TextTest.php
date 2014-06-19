@@ -1,5 +1,7 @@
 <?php namespace PHPUsable;
 
+require __DIR__ . '/../vendor/autoload.php';
+
 use Belt\Text as Text;
 
 class TextTest extends PHPUsableTest {
