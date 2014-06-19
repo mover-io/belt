@@ -1,0 +1,10 @@
+{
+    "require": {
+        "mover-io/phpusable-phpunit": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Belt\\": "lib/"
+        }
+    }
+}
