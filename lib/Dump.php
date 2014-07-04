@@ -1,6 +1,11 @@
 <?php namespace Belt;
 
 class Dump {
+  public static function color($subject)
+  {
+      return static::pretty($subject, 3, array(), array(), 1, true);
+  }
+
   /**
    * Depth limited print_r. Returns string instead of echoing by default.
    *
