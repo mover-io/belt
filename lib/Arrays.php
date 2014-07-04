@@ -30,7 +30,7 @@ class Arrays {
      *
      * @return mixed
      */
-    public static function get($array, $key, $default=null) {
+    public static function get($array, $key, $default = null) {
         $keys = explode(".", $key);
         $level = &$array;
         $length = count($keys);
@@ -46,6 +46,11 @@ class Arrays {
             }
         }
         return $default;
+    }
+
+    public static function subarray($array, $key)
+    {
+        return static::get($array, $key, array());
     }
 
     /**
