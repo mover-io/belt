@@ -1,9 +1,9 @@
 <?php namespace Belt;
 
 class Dump {
-  public static function color($subject)
+  public static function color($subject, $depth = 3)
   {
-      return static::pretty($subject, 3, array(), array(), 1, true);
+      return static::pretty($subject, $depth, array(), array(), 1, true);
   }
 
   /**
@@ -43,7 +43,7 @@ class Dump {
       {
           if ( $depth > 0 && is_array($subject) )
           {
-              $str .= Text::shellColor('yellow','Array (',$colors) . " \n";
+              $str .= Text::shellColor('yellow','Array (',$colors) . "\n";
               foreach ( $subject as $key => $val )
               {
                   if ( is_array($ignore) && ! in_array($key, $ignore, 1) )
@@ -79,7 +79,7 @@ class Dump {
                   else if (is_string($subject)) {
                     if($colors) {
                       $matches = array();
-                      preg_match('/^(\s*)?(.*?)(\s*)?$/m',$subject,$matches);
+                      preg_match('/^(\s*)?(.*?)(\s*)?$/s',$subject,$matches);
                       $subject = Text::shellColor('bg_red',$matches[1],$colors) .
                         $matches[2] .
                         Text::shellColor('bg_red',$matches[3],$colors);
