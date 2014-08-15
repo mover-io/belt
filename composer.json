@@ -10,6 +10,7 @@
     "support": {
         "email": "support@mover.io"
     },
+    "description": "A utility belt",
     "require-dev": {
         "mover-io/phpusable-phpunit": "dev-master"
     },
