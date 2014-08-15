@@ -10,7 +10,7 @@
     "support": {
         "email": "support@mover.io"
     },
-    "require": {
+    "require-dev": {
         "mover-io/phpusable-phpunit": "dev-master"
     },
     "autoload": {
