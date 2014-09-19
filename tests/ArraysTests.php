@@ -4,7 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Belt\Arrays;
 
-class SchemaObjectTest extends PHPUsableTest
+class ArraysTest extends PHPUsableTest
 {
     public function tests()
     {
