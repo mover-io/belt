@@ -56,6 +56,21 @@ class TextTest extends PHPUsableTest {
           $test->expect(Text::ensureNoPrefix('b','b'))->to->eql('');
         });
       });
+
+      describe('fromCamel', function($test) {
+        it('to convert to lower_case format', function($test) {
+          $test->expect(Text::fromCamel("TestController"))->to->be("test_controller");
+        });
+      });
+
+      describe('toCamel', function($test) {
+        it('should convert to camelCase', function($test) {
+          $test->expect(Text::toCamel("test_controller"))->to->be("testController");
+        });
+        it('should convert to CamelCase if capitilization is specified', function($test) {
+          $test->expect(Text::toCamel("test_controller", true))->to->be("TestController");
+        });
+      });
     });
   }
 }
