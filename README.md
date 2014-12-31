@@ -16,7 +16,7 @@ Example:
 ```php
 Belt\Trace::debug($your_result);
 // with Stack Trace
-Belt\Trace::stack(7)->debug($your_result);
+Belt\Trace::traceDepth(7)->debug($your_result);
 ```
 
 #### 2) Text
