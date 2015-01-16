@@ -35,6 +35,10 @@ class Arrays {
         $level = &$array;
         $length = count($keys);
         foreach($keys as $index => $key) {
+            if (!is_array($level)) {
+              return null;
+            }
+
             if(array_key_exists($key, $level)) {
                 if($index == $length-1) {
                     return $level[$key];

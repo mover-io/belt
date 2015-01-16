@@ -11,7 +11,7 @@ class ArraysTest extends PHPUsableTest
         PHPUsableTest::$current_test = $this;
 
         describe('Arrays', function ($test) {
-            describe('Arrays', function ($test) {
+            describe('Merge', function ($test) {
                 it('should not convert scalars to arrays', function ($test) {
                     $a = array(
                         'level 1' => array(
@@ -51,6 +51,37 @@ class ArraysTest extends PHPUsableTest
                         )
                     );
                 });
+            });
+
+            describe('Get', function($test) {
+              it('should get a single level value', function($test) {
+                $arr = array(
+                  'planets' => 'pluto'
+                );
+                $test->expect(Arrays::get($arr, 'planets'))->to->eql('pluto');
+              });
+
+              it('should get a multi level value', function($test) {
+                $arr = array(
+                  'milky_way' => array(
+                    'planets' => array(
+                      'earth'
+                    )
+                  )
+                );
+                $test->expect(Arrays::get($arr, 'milky_way.planets'))->to->eql(array('earth'));
+              });
+
+              it('should return null for an undefined key', function($test) {
+                $arr = array(
+                  'milky_way' => array(
+                    'planets' => array(
+                      'earth'
+                    )
+                  )
+                );
+                $test->expect(Arrays::get($arr, 'andromeda.planets'))->to->eql(null);
+              });
             });
         });
     }
