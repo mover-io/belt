@@ -72,7 +72,10 @@ class SchemaObject
             case 'array':
                 return is_array($value);
             default:
-                if ($value_type !== 'object') {
+                // Checks if value matches allowed types in array
+                if ($value_type === 'array') {
+                    return in_array($value, $spec['type']);
+                } elseif ($value_type !== 'object') {
                     return false;
                 } else {
                     return is_a($value, $spec['type']);

@@ -17,8 +17,9 @@ class PersonConfig extends SchemaObject
 {
     protected static $attribute_spec = array(
         'first_name' => array('type' => 'string'),
-        'age' => array('type' => 'PHPUsable\NaturalNumber'),
-        'gender' => array('default' => 'M')
+        'age'        => array('type' => 'PHPUsable\NaturalNumber'),
+        'gender'     => array('default' => 'M'),
+        'sign'       => array('type' => array('aries', 'scorpio'))
     );
 }
 
@@ -33,6 +34,7 @@ class SchemaObjectTest extends PHPUsableTest
                 $person_config = new PersonConfig();
                 $person_config->first_name = 'Sparks';
                 $person_config->age = new NaturalNumber(5);
+                $person_condig->sign = 'aries';
                 $test->expect($person_config->first_name)->to->eql('Sparks');
                 $test->expect($person_config->age)->to->eql(new NaturalNumber(5));
             });
@@ -54,6 +56,10 @@ class SchemaObjectTest extends PHPUsableTest
                 $test->expect(function () use ($person_config) {
                     $person_config->age = 5;
                 })->to->throw('\InvalidArgumentException');
+                $test->expect(function () use ($person_config) {
+                    $person_config->sign = 'libra';
+                })->to->throw('\InvalidArgumentException');
+
             });
 
             it('should allows nulls when a class type is used', function ($test) {

@@ -1,10 +1,12 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "82d8d26a06ce615ffd0f2b8edc78f6a7",
-    "packages": [
+    "hash": "0f55e1c788a36aa6f92959e4e7d3ebc9",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "esperance/esperance",
             "version": "v0.1.0",
@@ -532,20 +534,12 @@
             "time": "2014-05-16 14:25:18"
         }
     ],
-    "packages-dev": [
-
-    ],
-    "aliases": [
-
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "mover-io/phpusable-phpunit": 20
     },
-    "platform": [
-
-    ],
-    "platform-dev": [
-
-    ]
+    "prefer-stable": false,
+    "platform": [],
+    "platform-dev": []
 }
