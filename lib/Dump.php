@@ -73,9 +73,13 @@ class Dump {
                   else if ($subject === null) {
                       $subject = Text::shellColor('magenta','null',$colors);
                   }
-                  else if(is_float($subject) || is_double($subject)) {
-                      $format = is_double($subject) ? 'd' : 'f';
-                      $subject = Text::shellColor('cyan', number_format($subject) . ' => :0x'. bin2hex(pack($format, $subject)), $colors);
+                  else if (is_float($subject)) {
+                      if ($subject > 0) {
+                        $formated = number_format($subject);
+                      } else {
+                        $formated = sprintf("%g", $subject);
+                      }
+                      $subject = Text::shellColor('cyan', $formatted . ' => :0x'. bin2hex(pack('d', $subject)), $colors);
                   }
                   else if (is_numeric($subject)) {
                       $subject = Text::shellColor('blue',$subject,$colors);
