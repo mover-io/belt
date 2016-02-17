@@ -23,7 +23,7 @@ class ArraysTest extends PHPUsableTest
                             'level 2' => 5
                         )
                     );
-                    $test->expect(Arrays::array_merge_recursive_distinct($a, $b))->to->eql(
+                    $test->expect(array_replace_recursive($a, $b))->to->eql(
                         array(
                             'level 1' => array(
                                 'level 2' => 5
@@ -43,7 +43,7 @@ class ArraysTest extends PHPUsableTest
                             'level 2' => array(5)
                         )
                     );
-                    $test->expect(Arrays::array_merge_recursive_distinct($a, $b))->to->eql(
+                    $test->expect(array_replace_recursive($a, $b))->to->eql(
                         array(
                             'level 1' => array(
                                 'level 2' => array(5, 3)
