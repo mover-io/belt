@@ -169,8 +169,8 @@ class Text {
       'bg_blue'=>"\033[44m",
       'bg_magenta'=>"\033[45m",
       'bg_cyan'=>"\033[46m",
+      'bg_white'=>"\033[47m",
       'bg_gray'=>"\033[100m",
-      'white'=>"\033[47m",
 
       'bold_black'=>"\033[1;30m",
       'bold_red'=>"\033[1;31m",
