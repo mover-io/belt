@@ -31,7 +31,7 @@ class Trace {
       ),
       'trace' => array(
         'enabled' => true,
-        'depth' => 1,
+        'depth' => 10,
         'offset' => 0
       ),
       'separator' => ' « ',
