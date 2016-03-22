@@ -75,9 +75,9 @@ class Dump {
                   }
                   else if (is_float($subject)) {
                       if ($subject > 0) {
-                        $formated = number_format($subject);
+                        $formatted = number_format($subject);
                       } else {
-                        $formated = sprintf("%g", $subject);
+                        $formatted = sprintf("%g", $subject);
                       }
                       $subject = Text::shellColor('cyan', $formatted . ' => :0x'. bin2hex(pack('d', $subject)), $colors);
                   }
