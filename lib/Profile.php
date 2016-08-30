@@ -33,9 +33,9 @@ class Profile {
 
         $data = array(
             'elapsed' => $elapsed(),
-            'memory before' => $memory_before,
-            'memory after' => $memory_after,
-            'memory peak' => $memory_peak,
+            'memory_before' => $memory_before,
+            'memory_after' => $memory_after,
+            'memory_peak' => $memory_peak,
             'marks' => $marks
         );
 
