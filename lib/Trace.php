@@ -108,6 +108,9 @@ class Trace {
       $this->writeLn($this->_generateLine("", 5));
   }
 
+  // constant to allow you to use a class function as a first-class
+  // object and pass it to other functions.
+  const debug = 'Belt\Trace::debug'; //@codingStandardsIgnoreLine
   public function _debug($value, $depth=1) {
     $result = $this->_generateLine(
       Dump::pretty(
@@ -124,6 +127,8 @@ class Trace {
     }
 
     $this->writeLn($result);
+
+    return $value; // Return the input so that debug can be part of map chains.
   }
 
 
