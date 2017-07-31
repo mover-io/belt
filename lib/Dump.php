@@ -22,7 +22,7 @@ class Dump {
           {
               if ( is_array($ignore) && ! in_array($key, $ignore, 1) )
               {
-                  $str .= str_repeat(" ", $current * 4) . '[';
+                  $str .= str_repeat(" ", $current * 4) . '\'';
                   if ( $key{0} == "\0" )
                   {
                       $keyParts = explode("\0", $key);
@@ -32,7 +32,7 @@ class Dump {
                   {
                       $str .= $key;
                   }
-                  $str .= '] => ';
+                  $str .= '\' => ';
                   $str .= self::pretty($val, $depth - 1, $ignore, $refChain, $current + 1, $colors);
               }
           }
@@ -43,16 +43,16 @@ class Dump {
       {
           if ( $depth > 0 && is_array($subject) )
           {
-              $str .= Text::shellColor('yellow','Array (',$colors) . "\n";
+              $str .= Text::shellColor('yellow','[',$colors) . "\n";
               foreach ( $subject as $key => $val )
               {
                   if ( is_array($ignore) && ! in_array($key, $ignore, 1) )
                   {
-                      $str .= str_repeat(" ", $current * 4) . '[' . $key . ']' . ' => ';
+                      $str .= str_repeat(" ", $current * 4) . '\'' . $key . '\'' . ' => ';
                       $str .= self::pretty($val, $depth - 1, $ignore, $refChain, $current + 1, $colors);
                   }
               }
-              $str .= str_repeat(" ", ($current - 1) * 4) . Text::shellColor('yellow',")",$colors) . "\n";
+              $str .= str_repeat(" ", ($current - 1) * 4) . Text::shellColor('yellow',"]",$colors) . "\n";
           }
           else
           {
@@ -89,7 +89,7 @@ class Dump {
                       $matches = array();
                       preg_match('/^(\s*)?(.*?)(\s*)?$/s',$subject,$matches);
                       $subject = Text::shellColor('bg_red',$matches[1],$colors) .
-                        $matches[2] .
+                        '\'' . $matches[2] . '\'' .
                         Text::shellColor('bg_red',$matches[3],$colors);
                     }
                   }
