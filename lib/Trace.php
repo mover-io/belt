@@ -66,7 +66,7 @@ class Trace {
   // Utility Methods
   //################
 
-  public function _stack($depth=5,$start=1,$formatter=null) {
+  public function _stack($depth=5,$start=0,$formatter=null) {
     if($formatter == null) {
       $formatter = function($item, $index) {
         if(isset($item['file'])) {
@@ -85,7 +85,7 @@ class Trace {
     return array_filter($result);
   }
 
-  public function _stackString($depth=5,$start=3,$joinchar=" « ") {
+  public function _stackString($depth=5,$start=0,$joinchar=" « ") {
     return implode($joinchar,$this->_stack($depth,$start));
   }
 
@@ -105,13 +105,13 @@ class Trace {
   }
 
   public function _stackDump() {
-      $this->writeLn($this->_generateLine("", 5));
+      $this->writeLn($this->_generateLine(""));
   }
 
   // constant to allow you to use a class function as a first-class
   // object and pass it to other functions.
   const debug = 'Belt\Trace::debug'; //@codingStandardsIgnoreLine
-  public function _debug($value, $depth=1) {
+  public function _debug($value) {
     $result = $this->_generateLine(
       Dump::pretty(
         $value,
@@ -146,7 +146,7 @@ class Trace {
   /**
    * Common method for generating the main logging line.
    */
-  public function _generateLine($string, $start=6) {
+  public function _generateLine($string, $start=5) {
     if($this->options['trace']['enabled']) {
       $trace = $this->_stackString($this->options['trace']['depth'], $start+$this->options['trace']['offset'], $this->options['separator']);
     } else {
